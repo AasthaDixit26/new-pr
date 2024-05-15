@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const Textform = (props) => {
-  const [Text,setText]=useState("Enter Your Text")
+  const [Text,setText]=useState("")
   const handleUpClick=()=>{
     // console.log("uppercase");
     let newText=Text.toUpperCase();
@@ -11,6 +11,11 @@ const Textform = (props) => {
     // console.log("ON CHANGE");
     setText(event.target.value)
   };
+  const reverseText=()=>{
+    let finaltxt=Text.split("").reverse().join("");
+    
+    setText(finaltxt);
+  }
   
   return (
     <>
@@ -24,7 +29,8 @@ const Textform = (props) => {
           id="mybox"
           rows="8"
         ></textarea>
-        <button className="btn btn-primary" onClick={handleUpClick} >Uppercase</button>
+        <button className="btn btn-primary mx-md-2" onClick={handleUpClick} >Uppercase</button>
+        <button className="btn btn-primary mx-md-2" onClick={reverseText}> Reverse</button> 
       </div>
       </div>
       <div className="container">
@@ -35,6 +41,7 @@ const Textform = (props) => {
         <h4>You will take </h4>
         <p>{0.25*(Text.length)}seconds time to read above text</p>
       </div>
+      
     </>
   );
 };
