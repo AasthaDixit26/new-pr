@@ -14,7 +14,7 @@ const Textform = (props) => {
   
   return (
     <>
-     
+     <div className="container"> 
       <div className="mb-3">
         <h2>Write something to see the magic .</h2>
         <textarea
@@ -25,6 +25,15 @@ const Textform = (props) => {
           rows="8"
         ></textarea>
         <button className="btn btn-primary" onClick={handleUpClick} >Uppercase</button>
+      </div>
+      </div>
+      <div className="container">
+        <h2>Your text have </h2>
+        <p>{Text.split(" ").length} words and {Text.length} Characters.</p>
+      </div>
+      <div className="container">
+        <h4>You will take </h4>
+        <p>{0.25*(Text.length)}seconds time to read above text</p>
       </div>
     </>
   );
