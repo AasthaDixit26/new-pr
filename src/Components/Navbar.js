@@ -1,8 +1,9 @@
-import React from 'react';
+import React from "react";
 const Navbar = (props) => {
+ 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             {props.title}
@@ -31,7 +32,19 @@ const Navbar = (props) => {
                 </a>
               </li>
             </ul>
-            <form className="d-flex">
+        <div class={`form-check form-switch text-${(props.mode)==='light'?'dark':'light'}`} >
+              <input
+                class="form-check-input"
+                type="checkbox"
+                onClick={props.toggleBtn}
+                id="flexSwitchCheckDefault"
+              />
+              <label class="form-check-label" for="flexSwitchCheckDefault">
+                Enable Dark Mode
+                
+              </label>
+            </div>
+            {/* <form className="d-flex">
               <input
                 className="form-control me-2"
                 type="search"
@@ -41,7 +54,8 @@ const Navbar = (props) => {
               <button className="btn btn-outline-success" type="submit">
                 Search
               </button>
-            </form>
+              
+            </form> */}
           </div>
         </div>
       </nav>
